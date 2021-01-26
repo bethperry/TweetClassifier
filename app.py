@@ -1,19 +1,13 @@
 from flask import Flask, request
+from flask import render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
+    '''This is the home route. It only handles GET requests. It will return the templates/index.html file.'''
 
-    # if request has args (?tweet=some_tweet)
-    if request.args:
-
-        # get the value of the arg
-        tweet = request.args.get('tweet')   
-        
-        return tweet
-
-    return 'Hello World!'
+    return render_template('index.html') #return the html file under templates foldertemplate('index.html')
 
 @app.route('/about')
 def about():
